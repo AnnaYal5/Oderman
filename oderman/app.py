@@ -21,16 +21,12 @@ def home():
 
 @app.route('/menu')
 def menu():
-    return render_template('menu.html', pizzas=pizzas)
-
-@app.route('/orders')
-def orders():
     context = {
         "customers": customers,
         "test_name": test_name,
         "discount": discount
     }
-    return render_template('orders.html', **context)
+    return render_template('menu.html', pizzas=pizzas, **context)
 
 if __name__ == '__main__':
     app.run(debug=True)
