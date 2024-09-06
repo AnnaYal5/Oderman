@@ -1,0 +1,41 @@
+ <!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Меню</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<header>
+    {% include "_navigation.html" %}
+</header>
+    <h1>Меню піцерії Orderman</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Назва піци</th>
+                <th>Опис інгредієнтів</th>
+                <th>Ціна піци</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pizza in pizzas %}
+            <tr>
+                <td>{{ pizza.name }}</td>
+                <td>{{ pizza.ingredients }}</td>
+                <td>{{ pizza.price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h1>Замовлення клієнтів</h1>
+    <ul>
+    {% for customer in customers %}
+        <li>
+            {% if customer.order|int > 4 %} discount {% else %} none {% endif %}
+            <em>{{ customer.name }}:</em> {{ customer.order }}/{{ discount }}
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
