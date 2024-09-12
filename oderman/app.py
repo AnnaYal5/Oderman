@@ -1,12 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,request,redirect
+from data import insert_into_table,get_data_from_table,data
+
 import sqlite3
 app = Flask(__name__)
 
-pizzas = [
-    {'name': "Маргарита", "ingredients": "соус , сир, базилік", "price": "150 грн"},
-    {'name': "Папероні", "ingredients": "соус , сир, папероні", "price": "190 грн"},
-    {'name': "Гавайська", "ingredients": "соус , сир, ананас, шинка", "price": "200 грн"}
-]
 test_name = "Discount base"
 discount = "4"
 customers = [
@@ -27,8 +24,17 @@ def menu():
         "test_name": test_name,
         "discount": discount
     }
-    return render_template('menu.html', pizzas=pizzas, **context)
+    return render_template('menu.html', data=data, **context)
 
+
+@app.route('/add_item', methods=["POST"])
+def add_item():
+    name = request.form['name']
+    description = request.form['description']
+    price = request.form['price']
+    category = request.form['category']
+    insert_into_table(name, description, price, category)
+    return redirect('/menu')
 
 @app.route('/add')
 def add_form():

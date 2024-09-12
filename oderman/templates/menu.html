@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
@@ -7,23 +7,33 @@
 </head>
 <body>
 <header>
-    {% include "_navigation.html" %}
+    <div class="logo">
+            <img src="logo.png" alt="Company Logo">
+        </div>
+    <nav>
+            <ul>
+                <li>{% include "_navigation.html" %}</li>
+        </nav>
 </header>
     <h1>Меню піцерії Orderman</h1>
-    <table>
+    <table border="1">
         <thead>
             <tr>
-                <th>Назва піци</th>
-                <th>Опис інгредієнтів</th>
-                <th>Ціна піци</th>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>DESCRIPTION</th>
+                <th>PRICE</th>
+                <th>CATEGORY</th>
             </tr>
         </thead>
         <tbody>
-            {% for pizza in pizzas %}
+            {% for row in data%}
             <tr>
-                <td>{{ pizza.name }}</td>
-                <td>{{ pizza.ingredients }}</td>
-                <td>{{ pizza.price }}</td>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
             </tr>
             {% endfor %}
         </tbody>
