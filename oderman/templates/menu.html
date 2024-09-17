@@ -11,33 +11,17 @@
             <img src="logo.png" alt="Company Logo">
         </div>
     <nav>
-            <ul>
-                <li>{% include "_navigation.html" %}</li>
-        </nav>
+           <a href="{{ url_for('add_pizzas') }}">Add pizza</a>
+           <a href="{{ url_for('index.html') }}">home</a>
+    </nav>
 </header>
     <h1>Меню піцерії Orderman</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>NAME</th>
-                <th>DESCRIPTION</th>
-                <th>PRICE</th>
-                <th>CATEGORY</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for row in data%}
-            <tr>
-                <td>{{ row[0] }}</td>
-                <td>{{ row[1] }}</td>
-                <td>{{ row[2] }}</td>
-                <td>{{ row[3] }}</td>
-                <td>{{ row[4] }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<ul>{% for pizza in pizzas %}
+    <li>{{ pizza.name }} {{ pizza.age }} {{ pizza.price }} {{ pizza.category}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
     <h1>Замовлення клієнтів</h1>
     <ul>
     {% for customer in customers %}

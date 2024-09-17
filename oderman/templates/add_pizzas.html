@@ -1,0 +1,21 @@
+{% extends 'menu.html' %}
+{% block content %}
+<h1>Add pizzas</h1>
+<form method="POST">
+    <p>
+        {{ form.name.label }} <br>
+        {{ form.name(size=32) }}
+    </p>
+    <p>
+        {{ form.price.label }} <br>
+        {{ form.age(size=32) }}
+    </p>
+    <p>
+        {{ form.category.label }} <br>
+        {{ form.major(size=32) }}
+    </p>
+    <p>
+        {{ form.submit() }}
+    </p>
+</form>
+{% endblock %}

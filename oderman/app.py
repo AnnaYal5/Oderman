@@ -1,7 +1,7 @@
 from flask import Flask, render_template,request,redirect
-from data import insert_into_table,get_data_from_table,data
+from data import Pizzas
 
-import sqlite3
+
 app = Flask(__name__)
 
 test_name = "Discount base"
@@ -19,12 +19,13 @@ def home():
 
 @app.route('/menu')
 def menu():
+    pizzas = Pizzas.query.all()
     context = {
         "customers": customers,
         "test_name": test_name,
         "discount": discount
     }
-    return render_template('menu.html', data=data, **context)
+    return render_template('menu.html', **context, pizzas=pizzas)
 
 
 @app.route('/add_item', methods=["POST"])
@@ -40,6 +41,3 @@ def add_item():
 def add_form():
     return render_template('data.html')
 
-
-if __name__ == '__main__':
-    app.run(debug=True)

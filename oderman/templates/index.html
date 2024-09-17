@@ -15,7 +15,8 @@
         </div>
         <nav>
             <ul>
-                <li>{% include "_navigation.html" %}</li>
+                <a href="{{ url_for('add_item') }}">Add pizza</a>
+                <a href="{{ url_for('home') }}">menu</a>
                 <li><a href="/add ">Додати нову страву</a></li>
             </ul>
         </nav>
