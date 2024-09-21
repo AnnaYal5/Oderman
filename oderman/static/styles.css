@@ -1,67 +1,37 @@
-/* Основні стилі для body */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
 
-/* Стилі для хедера */
+/* Оформлення хедера */
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Вирівняти контент хедера по краях */
     align-items: center;
     padding: 10px 20px;
-    background-color: #333;
-    color: white;
+    background-color: #f8f9fa; /* Світлий фон */
+    border-bottom: 2px solid #e9ecef; /* Лінія внизу хедера */
 }
 
-.logo img {
-    height: 50px;
-}
-
-nav ul {
-    list-style-type: none;
+/* Стилізація заголовку */
+header h1 {
     margin: 0;
-    padding: 0;
+    font-size: 24px;
+}
+
+/* Оформлення навігації */
+nav {
     display: flex;
+    gap: 20px; /* Відстань між елементами меню */
 }
 
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    color: white;
+/* Стилізація посилань */
+nav a {
     text-decoration: none;
-    font-size: 16px;
+    color: #007bff; /* Синій колір для посилань */
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
-}
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
-    padding: 0;
-    text-align: center;
-}
-
-h1 {
-    color: #d1111;
-}
-
-table {
-    width: 80%;
-    margin: 20px auto;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
-}
-
-th {
-    background-color: #f2f2f2;
+/* Ефект при наведенні */
+nav a:hover {
+    background-color: #e9ecef; /* Зміна фону при наведенні */
 }
