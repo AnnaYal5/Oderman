@@ -1,40 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oderman</title>
-    <style>
-        header {
-            background-color: #EEE8AA;
-            padding: 10px;
-        }
-
-        header h1 {
-            color: #000002;
-            font-size: 25px;
-        }
-
-        nav a {
-            color: #000002;
-            text-decoration: none;
-            padding: 10px;
-        }
-
-        nav a:hover {
-            background-color:#BDB76B;
-        }
-    </style>
-</head>
+{% extends 'header.html' %}
+{% block content %}
 <body>
-<header>
-   <h1>Oderman</h1>
-    <nav>
-           <a href="{{ url_for('home') }}">home</a>
-           <a href="{{ url_for('menu') }}">Menu</a>
-           <a href="{{ url_for('add_pizzas') }}">Add pizzas</a>
-    </nav>
-</header>
-<div> {% block content %}{% endblock %} </div>
+  <img src="https://i.pinimg.com/564x/d6/08/3d/d6083d155840f83756d6af21ad4c41a6.jpg" alt="картинка"
+    width="600" height="700" style="margin-top: 70px;  margin-left: 80px;">
+
+
 </body>
-</html>
+
+{% endblock %}

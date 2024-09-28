@@ -1,11 +1,53 @@
-{% extends 'index.html' %}
+{% extends 'header.html' %}
 {% block content %}
-<h1>Меню піцерії Orderman</h1>
-<ul>
+<style>
+  h2 {
+    margin-bottom: 30px; /* Відступ знизу */
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #BEBEBE;
+
+  }
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Відстань між картками */
+    justify-content: center; /* Вирівнювання карток по центру */
+  }
+  .card {
+    border: 1px solid #696969; /* Рамка картки */
+    border-radius: 10px; /* Округлені кути */
+    padding: 20px; /* Внутрішній відступ */
+    width: 200px; /* Ширина картки */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тінь для глибини */
+    transition: transform 0.2s; /* Анімація при наведенні */
+    text-align: center; /* Вирівнювання тексту в картці */
+    background-color: #414141; /* Колір фону картки */
+  }
+  .card:hover {
+    transform: scale(1.05); /* Збільшення картки при наведенні */
+  }
+  .card h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: BEBEBE; /* Колір заголовка */
+  }
+  .card p {
+    margin: 10px 0;
+    color: BEBEBE; /* Колір тексту */
+  }
+</style>
+
+<h2>Меню піцерії Orderman</h2>
+<div class="card-container">
     {% for pizza in pizzas %}
-    <li>ID: {{ pizza.id }}, Name: {{ pizza.name }}, Price: {{ pizza.price }}, Category: {{ pizza.category }}</li>
+    <div class="card">
+        <h3>{{ pizza.name }}</h3>
+        <p>Ціна: {{ pizza.price }} грн</p>
+        <p>Категорія: {{ pizza.category }}</p>
+    </div>
     {% endfor %}
-</ul>
+</div>
 
 {% endblock %}
 

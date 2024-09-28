@@ -1,37 +1,38 @@
-{% extends 'index.html' %}
+{% extends 'header.html' %}
 {% block content %}
-<h1 style="color: #000014; text-align: center;">Додати нову страву</h1>
+<h1 style="color: #BEBEBE; text-align: center;">Додати нову страву</h1>
 <form method="POST"
-      style="background-color: #EEE8AA; padding:
+      style="background-color: #414141; padding:
       15px; border-radius: 7px; box-shadow:
       0 2px 5px rgba(0, 0, 0, 0.1);
       max-width: 600px; margin: 0 auto;">
+    {{ form.hidden_tag() }}
     <p>
-        <label style="font-weight: bold; color: #000014;">{{ form.name.label }}</label><br>
-        {{ form.name(size=32,
+        <label style="font-weight: bold; color:#BEBEBE;">{{ form.name.label }}</label><br>
+        {{ form.name(size=20,
         style="width: 100%;
-        padding: 7px;
-        border: 1px solid #ccc;
-        border-radius: 5px;") }}
+        padding: 4px;
+        border: 1px solid #696969
+        border-radius: 3px;") }}
     </p>
     <p>
-        <label style="font-weight: bold; color: #000014;">{{ form.price.label }}</label><br>
+        <label style="font-weight: bold; color: #BEBEBE;">{{ form.price.label }}</label><br>
         {{ form.price(size=32,
         style="width: 100%;
-        padding: 7px;
-        border: 1px solid #ccc;
-        border-radius: 5px;") }}
+        padding: 4px;
+        border: 1px solid #696969
+        border-radius: 3px;") }}
     </p>
     <p>
-        <label style="font-weight: bold; color: #000014;">{{ form.category.label }}</label><br>
+        <label style="font-weight: bold; color: #BEBEBE;">{{ form.category.label }}</label><br>
         {{ form.category(size=32,
         style="width: 100%;
-        padding: 7px;
-        border: 1px solid #ccc;
-        border-radius: 5px;") }}
+        padding: 4px;
+        border: 1px solid #696969
+        border-radius: 3px;") }}
     </p>
     <p>
-        {{ form.submit(style="background-color: #BDB76B;
+        {{ form.submit(style="background-color: #FFBA00;
         color: white;
         border: none;
         padding: 7px 15px;
@@ -39,10 +40,5 @@
         cursor: pointer;") }}
     </p>
 </form>
-<a href="/menu" style="color: #000014;
-text-decoration: none; font-weight:
-bold; display: block;
-text-align: center;
-margin-top: 20px;">Повернутися до меню</a>
 {% endblock %}
 
