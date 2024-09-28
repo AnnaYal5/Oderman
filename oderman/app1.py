@@ -15,11 +15,13 @@ app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database.db'
 def home():
     return render_template('index.html')
 
+
 @app.route('/menu')
 def menu():
     pizzas = Pizzas.query.all()
     print(f"Pizzas found: {pizzas}")  # Check if pizzas are retrieved
     return render_template('menu.html', pizzas=pizzas)
+
 
 @app.route('/add_item', methods=["GET", "POST"])
 def add_pizzas():
@@ -40,3 +42,6 @@ def add_pizzas():
 if __name__ == '__main__':
    init_db(app=app)
    app.run(debug=True)
+   init_db(app=app)
+   app.run(debug=True)
+
