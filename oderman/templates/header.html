@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oderman</title>
     <style>
-
         body {
-            background-color: #252729 ; /* Чорний фон для всього тіла сторінки */
-            color: white; /* Білий текст для контрасту */
-            font-family: Arial, sans-serif; /* Шрифт */
-            margin: ; /* Прибираємо стандартні відступи */
-            padding: 20px; /* Додаємо відступи зсередини */
+            background-color: #252729;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
         }
 
         header {
+            display: flex; /* Використовуємо flexbox для вирівнювання */
+            align-items: center; /* Вирівнюємо по вертикалі */
+            justify-content: space-between; /* Простір між елементами */
             border: 1px solid #BEBEBE;
             padding: 10px;
         }
@@ -22,31 +23,44 @@
         header h1 {
             color: #FFBA00;
             font-size: 25px;
+            margin: 0; /* Скасовуємо відступи для заголовка */
+        }
+
+        #weather {
+            text-align: right; /* Вирівнюємо текст вправо */
+        }
+
+        nav {
+            text-align: center;
+            margin-top: 20px;
         }
 
         nav a {
-            color: #696969;
+            color: #BEBEBE;
             text-decoration: none;
-            padding: 5px;
+            padding: 7px 10px; /* Відступи для кнопок навігації */
         }
 
         nav a:hover {
-            background-color:#BEBEBE;
+            background-color: #BEBEBE;
         }
     </style>
 </head>
 <body>
 <header>
    <h1>Oderman</h1>
-    <nav>
-           <a href="{{ url_for('home') }}">home</a>
-           <a href="{{ url_for('menu') }}">Menu</a>
-           <a href="{{ url_for('add_pizzas') }}">Add pizzas</a>
-    </nav>
+   <div id="weather">
+       <p>{{ temp }}°C</p>
+   </div>
 </header>
 
-<div>{% block content %}{% endblock %} </div>
+<nav>
+    <a href="{{ url_for('home') }}">home</a>
+    <a href="{{ url_for('menu') }}">Menu</a>
+    <a href="{{ url_for('add_pizzas') }}">Add pizzas</a>
+</nav>
 
+<div>{% block content %}{% endblock %}</div>
 
 </body>
 </html>

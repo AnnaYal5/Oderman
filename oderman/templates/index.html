@@ -1,10 +1,61 @@
 {% extends 'header.html' %}
 {% block content %}
+<head>
+  <style>
+      .container {
+          display: flex;
+          align-items: flex-start;
+          margin-top: 70px;
+          margin-left: 200px;
+      }
+
+      h1 {
+          font-size: 3.5em;
+          color:#BEBEBE;
+          front-family: 'Quicksand';
+          font-weight: 100;
+      }
+
+      p {
+          margin: 20px 0;
+          line-height: 1.8;
+          font-size: 1.4em;
+          color:#BEBEBE;
+      }
+
+      h2 {
+      font-size: 2.2em;
+      color: #FFBA00;
+
+      }
+
+      img {
+          width: 2000px;
+          height: 700px;
+          margin-left: 400px;
+          margin-right: 120px;
+
+
+
+      .description {
+          width: 500px;
+          text-align: left;
+
+  </style>
+</head>
 <body>
-  <img src="https://i.pinimg.com/564x/d6/08/3d/d6083d155840f83756d6af21ad4c41a6.jpg" alt="картинка"
-    width="600" height="700" style="margin-top: 70px;  margin-left: 80px;">
-
-
-</body>
-
+  <div class="container">
+    <div class="description">
+      <h1> Oderman</h1>
+        <p>
+          Ласкаво просимо до нашої піцерії — місця,
+          де традиції італійської кухні зустрічаються
+          з сучасним підходом до створення ідеальної піци.
+        </p>
+      <h2> Про нас </h2>
+    </div>
+    <img src="https://i.pinimg.com/564x/21/3a/ca/213acaf1812542295a7a35e047a9babb.jpg" alt="картинка">
+  </div>
 {% endblock %}
+
+
