@@ -8,3 +8,4 @@ class PizzasForm(FlaskForm):
     price = StringField(label="Price")
     category = StringField(label="Category")
     submit = SubmitField('Додати піцу')
+

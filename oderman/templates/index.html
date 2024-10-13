@@ -1,48 +1,13 @@
-{% extends 'header.html' %}
-{% block content %}
+<!doctype html>
+<html lang="en">
 <head>
-  <style>
-      .container {
-          display: flex;
-          align-items: flex-start;
-          margin-top: 70px;
-          margin-left: 200px;
-      }
-
-      h1 {
-          font-size: 3.5em;
-          color:#BEBEBE;
-          front-family: 'Quicksand';
-          font-weight: 100;
-      }
-
-      p {
-          margin: 20px 0;
-          line-height: 1.8;
-          font-size: 1.4em;
-          color:#BEBEBE;
-      }
-
-      h2 {
-      font-size: 2.2em;
-      color: #FFBA00;
-
-      }
-
-      img {
-          width: 2000px;
-          height: 700px;
-          margin-left: 400px;
-          margin-right: 120px;
-
-
-
-      .description {
-          width: 500px;
-          text-align: left;
-
-  </style>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% extends 'header.html' %}
+    {% block content %}
 <body>
   <div class="container">
     <div class="description">
@@ -53,7 +18,22 @@
           з сучасним підходом до створення ідеальної піци.
         </p>
       <h2> Про нас </h2>
+
+         <form action="{{ url_for('submit') }}" method="post">
+        {% for survey in surveys %}
+    <div class="question">
+        <label>{{ survey.question }}</label>
+        <input type="text" name="answer" placeholder="Ваша відповідь" required>
+        <input type="hidden" name="survey_id" value="{{ survey.id }}">
+        <a href="{{ url_for('survey', survey_id=survey.id) }}">Переглянути відповіді</a>
     </div>
+        {% endfor %}
+
+        <button type="submit">Надіслати</button>
+        </form>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+     </div>
     <img src="https://i.pinimg.com/564x/21/3a/ca/213acaf1812542295a7a35e047a9babb.jpg" alt="картинка">
   </div>
 {% endblock %}
