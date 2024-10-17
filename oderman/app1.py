@@ -29,19 +29,19 @@ def validate_answer(self, key, value: str):
 
 
 with app.app_context():
-    if Survey.query.count() == 0:
-        new_survey = Survey(question='Яка твоя найбільш улюблена піца?')
+     if Survey.query.count() == 0:
+        new_survey = Survey(question='Щоб хотіли бачити у меню??')
         db.session.add(new_survey)
-        second_survey = Survey(question='Щоб хотіли бачити у меню?')
-        db.session.add(second_survey)
         db.session.commit()
         try:
             db.session.commit()
         except Exception as e:
             db.session.rollback()
-            print(f"Error occurred: {e}")
+        print(f"Error occurred: {e}")
 
-
+# with app.app_context():
+#     db.session.query(Survey).delete()
+#     db.session.commit()
 def get_weather():
     params = {
         'q': CITY,
