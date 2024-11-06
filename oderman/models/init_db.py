@@ -1,5 +1,8 @@
 import os
 from flask_sqlalchemy import SQLAlchemy
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField,TextAreaField
+from wtforms.validators import DataRequired
 
 db = SQLAlchemy()
 
@@ -22,3 +25,13 @@ class Answer(db.Model):
     survey_id = db.Column(db.Integer, db.ForeignKey('survey.id'))
     answer = db.Column(db.String(250), nullable=False)
     survey = db.relationship('Survey', backref=db.backref('answers', lazy=True))
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(100), nullable=False)
+    reviews = db.Column(db.String(100), nullable=False, unique=True)
+
+class ReviewsForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    reviews = TextAreaField('Reviews', validators=[DataRequired()])
+    submit = SubmitField('Submit')

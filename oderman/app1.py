@@ -1,7 +1,7 @@
-from flask import Flask, render_template, redirect, jsonify, request
+from flask import Flask, render_template, redirect, jsonify, request,url_for
 from forms import PizzasForm
 from models.pizzas import Pizzas
-from models.init_db import init_db, db,Survey,Answer
+from models.init_db import init_db, db,Survey,Answer,ReviewsForm,User
 import requests
 from sqlalchemy.orm import validates
 
@@ -119,6 +119,18 @@ def add_pizzas():
         db.session.commit()
         return redirect('/')
     return render_template('data.html', form=form)
+
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    form = ReviewsForm()
+    if form.validate_on_submit():
+        username = form.username.data
+        reviews = form.reviews.data
+        db.session.add(User(username=username, reviews=reviews))
+        db.session.commit()
+        return redirect(url_for("index"))
+    return render_template("index.html", form=form)
 
 
 
